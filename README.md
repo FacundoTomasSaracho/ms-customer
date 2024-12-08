@@ -1,4 +1,6 @@
-Este repositorio tiene la finalidad de manejar un microservicio orientado a la administración de clientes con operaciones básicas para practicar creación de bases de datos con JPA y además patrones de diseño. Además, para mi propia diversión :D
+Este repositorio tiene la finalidad de manejar un microservicio orientado a la administración de clientes con operaciones básicas para practicar creación de bases de datos con JPA y además patrones de diseño. También y mucho más importante: por diversión.
+
+
 DBs:
 
 - Relacionales: MySQL
