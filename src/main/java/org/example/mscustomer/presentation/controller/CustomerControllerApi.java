@@ -6,7 +6,6 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
-import org.example.mscustomer.business.model.ClientType;
 import org.example.mscustomer.presentation.controller.impl.CustomerControllerImpl;
 import org.example.mscustomer.presentation.dto.CustomerDto;
 import org.springframework.http.ResponseEntity;

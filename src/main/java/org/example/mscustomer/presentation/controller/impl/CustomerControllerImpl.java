@@ -44,7 +44,7 @@ public class CustomerControllerImpl implements CustomerControllerApi {
 
     @Override
     @PostMapping("calculate-tax")
-    public ResponseEntity<Double> calculateClientTaxes(@RequestBody ClientTax clientTax) {
+    public ResponseEntity<Double> calculateClientTaxes(@RequestBody @Valid ClientTax clientTax) {
         return new ResponseEntity<>(clientFabric
                 .getStrategy(clientTax.clientType)
                 .calculateTax(clientTax.amount), HttpStatus.OK);
