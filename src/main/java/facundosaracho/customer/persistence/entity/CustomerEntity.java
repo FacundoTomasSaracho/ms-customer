@@ -34,7 +34,7 @@ public class CustomerEntity {
     @Comment("Número de teléfono del cliente.")
     private String phoneNumber;
 
-    @Column(name = "created_at", columnDefinition = "DATETIME" ,nullable = false)
+    @Column(name = "created_at",nullable = false)
     @Comment("Fecha de creación/registro del cliente.")
     private LocalDateTime createdAt;
 
