@@ -4,5 +4,5 @@ import facundosaracho.customer.business.model.Customer;
 
 public interface CustomerService {
 
-    Customer createCustomer(Long id);
+    Customer findById(Long id);
 }

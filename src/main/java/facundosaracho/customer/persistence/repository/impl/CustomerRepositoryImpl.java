@@ -8,6 +8,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 @Repository
 @RequiredArgsConstructor
 @Slf4j
@@ -16,12 +18,10 @@ public class CustomerRepositoryImpl implements CustomerRepository {
     private final JpaCustomerRepository jpaCustomerRepository;
 
     @Override
-    public Customer findCustomerById(Long id) {
+    public Optional<Customer> findCustomerById(Long id) {
 
         log.info("Finding client in DB with id: {}", id);
 
-        return CustomerMapper
-                .INSTANCE
-                .fromEntityToModel(jpaCustomerRepository.findById(id).orElse(null));
+        return jpaCustomerRepository.findById(id).map(CustomerMapper.INSTANCE::fromEntityToModel);
     }
 }
