@@ -1,11 +1,11 @@
 package facundosaracho.customer.persistence.entity;
 
+import facundosaracho.customer.model.ClientType;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.Value;
 
 import java.time.LocalDateTime;
 
@@ -25,6 +25,8 @@ public class CustomerEntity {
     private @Email String email;
     @Column(name = "phone_number", nullable = false)
     private String phoneNumber;
-    @Column(name = "created_at",  nullable = false)
+    @Column(name = "created_at", nullable = false)
     private LocalDateTime createdAt;
+    @Column(name = "client_type", nullable = false)
+    private ClientType clientType;
 }

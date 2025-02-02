@@ -1,5 +1,6 @@
 package facundosaracho.customer.business.model;
 
+import facundosaracho.customer.model.ClientType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,4 +17,5 @@ public class Customer {
     private String email;
     private String phoneNumber;
     private LocalDateTime createdAt;
+    private ClientType clientType;
 }

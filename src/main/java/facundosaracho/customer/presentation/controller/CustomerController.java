@@ -10,10 +10,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
@@ -23,14 +20,14 @@ public class CustomerController implements CustomerApi {
 
     private final CustomerService customerService;
 
-    @PostMapping("create")
-    ResponseEntity<CustomerDto> createCustomer(@RequestBody @Valid CustomerDto customerDto) {
+    @GetMapping("{id}")
+    ResponseEntity<CustomerDto> createCustomer(@PathVariable Long id) {
 
-        log.info("<<< Starting to create customer: {} >>>", customerDto);
+        log.info("Finding client in db with id : {}", id);
 
-        Customer customer = customerService.createCustomer(CustomerMapper.INSTANCE.toModel(customerDto));
+        Customer customer = customerService.createCustomer(id);
 
-        log.info("<<< Customer created successfully >>>");
+        log.info("<<< Customer found successfully. End of method >>>");
 
         return new ResponseEntity<>(CustomerMapper.INSTANCE.toDto(customer), HttpStatus.CREATED);
     }
