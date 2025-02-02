@@ -4,25 +4,23 @@ import facundosaracho.customer.model.ClientType;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.Comment;
 
 import java.time.LocalDateTime;
 
 @Entity
-@NoArgsConstructor
-@Table(name = "customer")
-@Comment("Tabla que contiene la información de todos nuestros customers.")
 @Getter
 @Setter
+@Table(name = "customer")
+@Comment("Tabla que contiene la información de todos nuestros customers.")
 public class CustomerEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "name", length = 50,nullable = false)
+    @Column(name = "name", length = 50, nullable = false)
     @Comment("Nombre del cliente")
     private String name;
 
@@ -30,11 +28,11 @@ public class CustomerEntity {
     @Comment("Email del cliente. El valor es opcional.")
     private @Email String email;
 
-    @Column(name = "phone_number",length = 30,nullable = false)
+    @Column(name = "phone_number", length = 30, nullable = false)
     @Comment("Número de teléfono del cliente.")
     private String phoneNumber;
 
-    @Column(name = "created_at",nullable = false)
+    @Column(name = "created_at", nullable = false, updatable = false)
     @Comment("Fecha de creación/registro del cliente.")
     private LocalDateTime createdAt;
 
@@ -44,7 +42,7 @@ public class CustomerEntity {
     private ClientType clientType;
 
     @PrePersist
-    private void prePersist(){
+    private void prePersist() {
         createdAt = LocalDateTime.now();
     }
 }
